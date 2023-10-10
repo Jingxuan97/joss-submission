@@ -26,7 +26,7 @@ affiliations:
  - name: School of Physical Sciences, The Open University, Walton Hall, Milton Keynes MK7 6AA, UK
    index: 2
 date: 13 August 2017
-bibliography: Paper3.bib
+bibliography: paper.bib
 
 # Optional fields if submitting to a AAS journal too, see this blog post:
 # https://blog.joss.theoj.org/2018/12/a-new-collaboration-with-aas-publishing
