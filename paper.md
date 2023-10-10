@@ -42,7 +42,7 @@ In order to retrieve information such as molecular abundance and thermal structu
 Our nemesispy is a Python package that can be used to constrain the atmospheric properties of transiting hot Jupiters by fitting spectra generated from atmospheric models to observations.
 The radiative transfer routines of nemesispy is closely based on the FORTRAN NEMESIS library described in irwin_nemesis_2008, and we have extensively benchmarked the spectral calculations of nemesispy against the FORTRAN NEMESIS library. We implement the correlated k-distribution method, described in ('citations'').
 
-@irwin:2008
+[@irwin_nemesis_2008] [@yang_testing_2023-3
 
 # Statement of need
 
