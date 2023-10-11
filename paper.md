@@ -10,14 +10,14 @@ tags:
 
 authors:
   - name: Jingxuan Yang
-    orcid: 0000-0000-0000-0000
+    orcid: 0009-0006-2395-6197
     equal-contrib: true
     affiliation: "1" # (Multiple affiliations must be quoted)
   - name: Juan Alday
-    orcid: 0000-0000-0000-0000
-    equal-contrib: false # (This is how you can denote equal contributions between multiple authors)
+    orcid: 0000-0003-1459-3444
     affiliation: 2
   - name: Patrick Irwin
+    orcid: 0000-0002-6772-384X
     corresponding: false # (This is how to denote the corresponding author)
     affiliation: 1
 affiliations:
@@ -35,16 +35,22 @@ aas-journal: Astrophysical Journal <- The name of the AAS journal.
 ---
 # Summary
 
-Hot Jupiters are gaseous giant planets with orbital periods less than about 10 days.
-The hot extended atmospheres of these planets make them ideal targets for molecular abundance measurements using spectroscopic observations (cite:low res: transmission, emission, phase curves, high res: transmission), which can grant us valuable insights into how giant planets, and planetary systems in general, form and evolve.
-The molecular abundance constraints we can glean from hot Jupiters are complimentary to the information we can gain from solar system giants, whose atmospheres are so cold that molecules such as water condense out and are hidden from view.
-In order to retrieve information such as molecular abundance and thermal structure from hot Jupiter spectra, we need two modelling tools: (1) )atmospheric models to describe the planet under observation; and (2) a radiative transfer model to compute spectra that can be used to fit the data.
-Our nemesispy is a Python package that can be used to constrain the atmospheric properties of transiting hot Jupiters by fitting spectra generated from atmospheric models to observations.
-The radiative transfer routines of nemesispy is closely based on the FORTRAN NEMESIS library described in irwin_nemesis_2008, and we have extensively benchmarked the spectral calculations of nemesispy against the FORTRAN NEMESIS library. We implement the correlated k-distribution method, described in ('citations'').
+Hot Jupiters are gaseous giant exoplanets with short orbital periods (less than about 10 days).
+These planets have hot extended atmospheres and are ideal targets for atmospheric characterisation.
+Detailed atmospheric characterisation not only grants us insights into individual planets, but can also inform us on how planetary systems form and evolve [@chachan_breaking_2023].
+Using spectroscopic observations, we can constrain the atmospheric properties (such as chemical composition, thermal structure and aerosol distribution) of hot Jupiters, in a process known as atmospheric retrievals [@irwin_nemesis_2008; madhusudhan_temperature_2009].
+The main steps involved in atmospheric retrievals are as follows: starting from the data that we wish to analyse, for example emission spectra [@lee_optimal_2012] and transmission spectra [@barstow_consistent_2017], we first need to construct a parametric atmosheric model that can be used to simulate the observed data in conjunction with a spectral simulation tool.
+We then explore the parameter space of the atmospheric model to find the parameters that best fit the data using a Bayesian parameter estimation scheme [e.g, @feroz_multimodal_2008].
+The resulting posterior distribution of the model parameters can then inform us
+about the atmospheric properties of the planet.
+There are multiple open-source atmospheric retrieval softwares that have been applied to the analsysis of both solar system and exoplanetary observations, and a catalogue of these softwares can be found in @macdonald_catalog_2023.
 
-[@irwin_nemesis_2008] [@yang_testing_2023-3]
+Our nemesispy is a Python package that can be used to constrain the atmospheric properties of transiting hot Jupiters by fitting spectra generated from atmospheric models to observations.
+The radiative transfer routines of nemesispy is closely based on the FORTRAN NEMESIS library described in irwin_nemesis_2008, and we have extensively benchmarked the spectral calculations of nemesispy against the FORTRAN NEMESIS library [@irwin_nemesis_2008]. We implement the correlated k-distribution method, described in ('citations'').
 
 # Statement of need
+
+nemesispy is a Python package for exoplanet spectral simulation and retrieval.
 
 `Gala` is an Astropy-affiliated Python package for galactic dynamics. Python
 enables wrapping low-level languages (e.g., C) for speed without losing
@@ -66,42 +72,8 @@ design, and support for Astropy functionality in `Gala` will enable exciting
 scientific explorations of forthcoming data releases from the *Gaia* mission
 [@gaia] by students and experts alike.
 
-# Mathematics
-
-Single dollars ($) are required for inline mathematics e.g. $f(x) = e^{\pi/x}$
-
-Double dollars make self-standing equations:
-
-$$
-\Theta(x) = \left\{\begin{array}{l}
-0\textrm{ if } x < 0\cr
-1\textrm{ else}
-\end{array}\right.
-$$
-
-You can also use plain \LaTeX for equations
-\begin{equation}\label{eq:fourier}
-\hat f(\omega) = \int_{-\infty}^{\infty} f(x) e^{i\omega x} dx
-\end{equation}
-and refer to \autoref{eq:fourier} from text.
-
-# Citations
-
-Citations to entries in paper.bib should be in
-[rMarkdown](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
-format.
-
-If you want to cite a software repository URL (e.g. something on GitHub without a preferred
-citation) then you can do it with the example BibTeX entry below for @fidgit.
-
-For a quick reference, the following citation commands can be used:
-
-- `@author:2001`  ->  "Author et al. (2001)"
-- `[@author:2001]` -> "(Author et al., 2001)"
-- `[@author1:2001; @author2:2001]` -> "(Author1 et al., 2001; Author2 et al., 2002)"
-
 # Acknowledgements
 
-The authors express gratitude to the developers of many open-source Python packages used by NEMESISPY, in particular numpy (Harris et al., 2020), SciPy (Virtanen et al., 2020), and Matplotlib (Hunter, 2007).
+The authors express gratitude to the developers of many open-source Python packages used by NEMESISPY, in particular numpy [@harris_array_2020], SciPy [@virtanen_scipy_2020], and Matplotlib [@hunter_matplotlib_2007]. The authors also express gratidude to the developers of the NEMESIS library [@irwin_nemesis_2008].
 
 # References
