@@ -45,35 +45,25 @@ The resulting posterior distribution of the model parameters can then inform us
 about the atmospheric properties of the planet.
 There are multiple open-source atmospheric retrieval softwares that have been applied to the analsysis of both solar system and exoplanetary observations, and a catalogue of these softwares can be found in @macdonald_catalog_2023.
 
-Our nemesispy is a Python package that can be used to constrain the atmospheric properties of transiting hot Jupiters by fitting spectra generated from atmospheric models to observations.
-The radiative transfer routines of nemesispy is closely based on the FORTRAN NEMESIS library described in irwin_nemesis_2008, and we have extensively benchmarked the spectral calculations of nemesispy against the FORTRAN NEMESIS library [@irwin_nemesis_2008]. We implement the correlated k-distribution method, described in ('citations'').
-
 # Statement of need
 
-nemesispy is a Python package for exoplanet spectral simulation and retrieval.
+nemesispy is a Python package for exoplanet spectral simulation and retrieval, and is particularly useful for the retrievals of spectroscopic phase curves of hot Jupiters, which are flux measurements at multiple orbital phases and wavelengths.
+The radiative transfer and spectral simulation routines are closely based on the FORTRAN NEMESIS library [@irwin_nemesis_2008], which has been extensively and continuously applied to the atmospheric retrievals of both solar system and exoplanetary observations [@james_temporal_2023; @barstow_unveiling_2020].
+We implement the correlated k-distribution method for radiative transfer calculations, described in @lacis_description_1991.
+Compared to the original NEMESIS library, the nemesispy package focuses on exoplanetary observations, with two notable points of difference.
+Firstly, nemesispy implements several parametric hot Jupiter atmospheric temperature models for the retrievals of phase curve observations, including those described in @yang_testing_2023.
+Secondly, nemesispy is significantly faster than the original FORTRAN library for modelling exoplanet spectra due to extensive code refactoring and the use of the Numba just-in-time compiler [@lam_numba_2015], which compiles the most computationally expensive routines to machine code at run time.
+Such speed improvement is crucial for the analysis of exoplantary spectra using sampling-based Bayesian parameter estimation, which typically involves the computation of millions of simulated data.
+In particular, nemesispy would be beneficial to phase curve retrievals [@yang_testing_2023], where each individual simulated data is relatively time consuming.
 
-`Gala` is an Astropy-affiliated Python package for galactic dynamics. Python
-enables wrapping low-level languages (e.g., C) for speed without losing
-flexibility or ease-of-use in the user-interface. The API for `Gala` was
-designed to provide a class-based and user-friendly interface to fast (C or
-Cython-optimized) implementations of common operations such as gravitational
-potential and force evaluation, orbit integration, dynamical transformations,
-and chaos indicators for nonlinear dynamics. `Gala` also relies heavily on and
-interfaces well with the implementations of physical units and astronomical
-coordinate systems in the `Astropy` package [@astropy] (`astropy.units` and
-`astropy.coordinates`).
-
-`Gala` was designed to be used by both astronomical researchers and by
-students in courses on gravitational dynamics or astronomy. It has already been
-used in a number of scientific publications [@Pearson:2017] and has also been
-used in graduate courses on Galactic dynamics to, e.g., provide interactive
-visualizations of textbook material [@Binney:2008]. The combination of speed,
-design, and support for Astropy functionality in `Gala` will enable exciting
-scientific explorations of forthcoming data releases from the *Gaia* mission
-[@gaia] by students and experts alike.
+nemesispy contains a number of general purporse routines for atmospheric modelling and spectral simulations.
+The modular nature of the package means that subroutines can be easily called on its own.
+Currently, nemesispy has easy-to-use API for simulating emission spectra and phase curves of hot Jupiters from arbitary input atmospheric models, and we plan to create interface for transmission spectra in our next phase of code development.
+nemesispy has already been used in a scientific publication [@yang_testing_2023], and is actively being used in exoplanetary data analysis projects.
+The combination of well-tested core radiative transfer routines, accelerated computational speed and packaged modular desisgn will enable exciting arrays of new research, especially with the influx of state-of-the-art JWST data for exoplanets.
 
 # Acknowledgements
 
-The authors express gratitude to the developers of many open-source Python packages used by NEMESISPY, in particular numpy [@harris_array_2020], SciPy [@virtanen_scipy_2020], and Matplotlib [@hunter_matplotlib_2007]. The authors also express gratidude to the developers of the NEMESIS library [@irwin_nemesis_2008].
+The authors express gratitude to the developers of many open-source Python packages used by NEMESISPY, in particular numpy [@harris_array_2020], SciPy [@virtanen_scipy_2020], Numba [@lam_numba_2015] and Matplotlib [@hunter_matplotlib_2007]. The authors also express gratidude to the developers of the NEMESIS library [@irwin_nemesis_2008].
 
 # References
