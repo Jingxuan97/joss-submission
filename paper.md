@@ -11,7 +11,6 @@ tags:
 authors:
   - name: Jingxuan Yang
     orcid: 0009-0006-2395-6197
-
     affiliation: "1" # (Multiple affiliations must be quoted)
   - name: Juan Alday
     orcid: 0000-0003-1459-3444
@@ -36,7 +35,7 @@ These planets have extended atmospheres with large scale heights and are ideal t
 Detailed atmospheric characterisation not only grants us insights into individual planets, but can also inform us on how planetary systems form and evolve [@chachan_breaking_2023].
 Using spectroscopic observations, we can constrain the atmospheric properties of hot Jupiters such as chemical composition, thermal structure and aerosol distribution, in a process known as atmospheric retrievals [@irwin_nemesis_2008; @madhusudhan_temperature_2009].
 The main steps involved in atmospheric retrievals are as follows: starting from the data that we wish to analyse, for example emission spectra and transmission spectra of exoplanets [@lee_optimal_2012; @barstow_consistent_2017], we first need to construct a parametric atmosheric model that can be used to simulate the observed data.
-We then explore the parameter space of the atmospheric model to find the parameters that best fit the data using some Bayesian parameter estimation scheme [e.g, @feroz_multimodal_2008].
+We then explore the parameter space of the atmospheric model to find the parameters that best fit the data using some Bayesian parameter estimation scheme [e.g., @feroz_multimodal_2008].
 The resulting posterior distribution of the model parameters can then inform us
 about the atmospheric properties of the planet.
 There are multiple open-source atmospheric retrieval softwares that have been applied to the analsysis of both solar system and exoplanetary observations, and a catalogue of these softwares can be found in @macdonald_catalog_2023.
@@ -44,7 +43,7 @@ There are multiple open-source atmospheric retrieval softwares that have been ap
 # Statement of need
 
 nemesispy is a Python package for exoplanet spectral simulation and retrieval, and is particularly useful for the retrievals of spectroscopic phase curves of hot Jupiters, which are flux measurements at multiple orbital phases and wavelengths.
-The radiative transfer and spectral simulation routines are closely based on the Fortran NEMESIS library [@irwin_nemesis_2008], which has been extensively and continuously applied to the atmospheric retrievals of both solar system and exoplanetary observations [e.g., @james_temporal_2023; @barstow_unveiling_2020].
+The radiative transfer and spectral simulation routines are closely based on the Fortran NEMESIS library [@irwin_nemesis_2008], which has been extensively and continuously applied to the atmospheric retrievals of both solar system and exoplanetary observations [e.g., @barstow_unveiling_2020; @james_temporal_2023].
 We implement the correlated k-distribution method for radiative transfer calculations, described in @lacis_description_1991.
 Compared to the original NEMESIS library, the nemesispy package focuses on exoplanetary observations, with two notable points of difference.
 Firstly, nemesispy implements several parametric hot Jupiter atmospheric temperature models for the retrievals of phase curve observations, including those described in @yang_testing_2023.
