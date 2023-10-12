@@ -34,7 +34,7 @@ Hot Jupiters are gaseous giant exoplanets with short orbital periods (less than 
 These planets have extended atmospheres with large scale heights and are ideal targets for atmospheric characterisation.
 Detailed atmospheric characterisation not only grants us insights into individual planets, but can also inform us on how planetary systems form and evolve [@chachan_breaking_2023].
 Using spectroscopic observations, we can constrain the atmospheric properties of hot Jupiters such as chemical composition, thermal structure and aerosol distribution, in a process known as atmospheric retrievals [@irwin_nemesis_2008; @madhusudhan_temperature_2009].
-The main steps involved in atmospheric retrievals are as follows: starting from the data that we wish to analyse, for example emission spectra and transmission spectra of exoplanets [@lee_optimal_2012; @barstow_consistent_2017], we first need to construct a parametric atmosheric model that can be used to simulate the observed data.
+The main steps involved in atmospheric retrievals are as follows: starting from the data that we wish to analyse, for example emission spectra and transmission spectra of exoplanets [@lee_optimal_2012; @barstow_consistent_2017], we first need to construct a parametric atmosheric model and a spectral simulation tool that can be used to simulate the observed data.
 We then explore the parameter space of the atmospheric model to find the parameters that best fit the data using some Bayesian parameter estimation scheme [e.g., @feroz_multimodal_2008].
 The resulting posterior distribution of the model parameters can then inform us
 about the atmospheric properties of the planet.
@@ -52,7 +52,7 @@ Such speed improvement is crucial for the analysis of exoplantary spectra using 
 In particular, nemesispy would be beneficial to phase curve retrievals [@yang_testing_2023], where each individual simulated data is relatively time consuming.
 
 nemesispy contains a number of general purporse routines for atmospheric modelling and spectral simulations.
-The modular nature of the package means that subroutines can be easily called on its own.
+The modular nature of the package means that subroutines can be easily called on their own.
 Currently, nemesispy has an easy-to-use API for simulating emission spectra and phase curves of hot Jupiters from arbitary input atmospheric models, and we plan to create interface for transmission spectra in our next phase of code development.
 nemesispy has already been used in a scientific publication [@yang_testing_2023], and is actively being used in exoplanetary data analysis projects.
 The combination of well-tested core radiative transfer routines, accelerated computational speed and packaged modular desisgn will enable exciting avenues of new research, especially with the influx of JWST data for exoplanets.
