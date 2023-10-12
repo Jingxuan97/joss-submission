@@ -11,10 +11,11 @@ tags:
 authors:
   - name: Jingxuan Yang
     orcid: 0009-0006-2395-6197
-    equal-contrib: true
+
     affiliation: "1" # (Multiple affiliations must be quoted)
   - name: Juan Alday
     orcid: 0000-0003-1459-3444
+    corresponding: false # (This is how to denote the corresponding author)
     affiliation: 2
   - name: Patrick Irwin
     orcid: 0000-0002-6772-384X
@@ -27,11 +28,6 @@ affiliations:
    index: 2
 date: 13 August 2017
 bibliography: paper.bib
-
-# Optional fields if submitting to a AAS journal too, see this blog post:
-# https://blog.joss.theoj.org/2018/12/a-new-collaboration-with-aas-publishing
-aas-doi: 10.3847/xxxxx <- update this with the DOI from AAS once you know it.
-aas-journal: Astrophysical Journal <- The name of the AAS journal.
 ---
 # Summary
 
